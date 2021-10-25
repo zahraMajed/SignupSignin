@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home"
+    tools:context=".SignUp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvJoinUs"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Join us!"
+            android:textAlignment="center"
+            android:textColor="#CF9C01"
+            android:textSize="48sp" />
+
+        <EditText
+            android:id="@+id/edNameSignUp"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="#CF9C01"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edMobileSignUp"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#CF9C01"
+            android:ems="10"
+            android:hint="Mobile number"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edLocSignUp"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#CF9C01"
+            android:ems="10"
+            android:hint="Location"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edPasswordSignUp"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#CF9C01"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="numberPassword" />
+
+        <Button
+            android:id="@+id/btnSubSignUp"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="#37CF9C01"
+            android:text="SignUp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
