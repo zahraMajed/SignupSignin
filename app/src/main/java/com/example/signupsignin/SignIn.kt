@@ -14,7 +14,6 @@ class SignIn : AppCompatActivity() {
 
     lateinit var userMobile2:String
     lateinit var userPassword:String
-    lateinit var userDBPassword:String
 
     val dbHelper=DataBaseHelper(this)
 
@@ -30,11 +29,13 @@ class SignIn : AppCompatActivity() {
             if(edMobileSignin.text.isNotEmpty() && edPasswordSignin.text.isNotEmpty()) {
                 userMobile2=edMobileSignin.text.toString()
                 userPassword=edPasswordSignin.text.toString()
-                getUserDBPassword()
-                if (userDBPassword==userPassword){
-                    intent= Intent(this,Details::class.java)
-                    intent.putExtra("mobile",userMobile2)
-                    startActivity(intent)
+                if (getUserDBPassword() != null){
+                    if (getUserDBPassword().equals(userPassword)){
+                        intent= Intent(this,Details::class.java)
+                        intent.putExtra("mobile",userMobile2)
+                        startActivity(intent)
+                    }else
+                        Toast.makeText(applicationContext, "Wrong password or phone number, try again!", Toast.LENGTH_SHORT).show()
                 }else
                     Toast.makeText(applicationContext, "Wrong password or phone number, try again!", Toast.LENGTH_SHORT).show()
             }else
@@ -43,9 +44,13 @@ class SignIn : AppCompatActivity() {
 
         }//end onCreate()
 
-    fun getUserDBPassword(){
-        for (i in dbHelper.getData(userMobile2)){
-            userDBPassword=i[3]
+    fun getUserDBPassword(): String? {
+        var userDBPassword:String ?=null
+        if (dbHelper.getData(userMobile2)!=null){
+            for (i in dbHelper.getData(userMobile2)){
+                userDBPassword=i[3]
+            }
         }
+        return userDBPassword
     }//end getUserDBPassword()
 }
